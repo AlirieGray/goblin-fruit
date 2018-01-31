@@ -1,0 +1,35 @@
+$bg: #F2DEBD;
+$font-color: #386F63;
+$big-font: 2em;
+
+body, html {
+  margin: 0;
+  color: $font-color;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  background-color: $bg;
+  font-size: $big-font;
+  text-align: center;
+}
+
+.verses {
+  grid-column-start: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.one {
+  margin-bottom: 100vh;
+
+}
+
+.two {
+  margin-bottom: 100vh;
+}
+
+.three {
+  margin-bottom: 100vh;
+}
