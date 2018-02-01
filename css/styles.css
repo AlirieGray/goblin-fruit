@@ -28,9 +28,23 @@ body, html {
   transition: 3500ms; }
 
 .two {
+  color: #F2DEBD;
   transition: 3500ms; }
 
 .three {
+  color: #F2DEBD;
+  transition: 3500ms; }
+
+.four {
+  color: #F2DEBD;
+  transition: 3500ms; }
+
+.five {
+  color: #F2DEBD;
+  transition: 3500ms; }
+
+.end {
+  height: 100vh;
   transition: 3500ms; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -41,11 +41,26 @@ body, html {
 }
 
 .two {
-  //color: $bg; // start invisible
+  color: $bg; // start invisible
   transition: 3500ms;
 }
 
 .three {
-  //color: $bg; // start invisible
+  color: $bg; // start invisible
+  transition: 3500ms;
+}
+
+.four {
+  color: $bg; // start invisible
+  transition: 3500ms;
+}
+
+.five {
+  color: $bg; // start invisible
+  transition: 3500ms;
+}
+
+.end {
+  height: 100vh;
   transition: 3500ms;
 }

@@ -31,11 +31,17 @@
           <p> Plump unpeck’d cherries, </p>
           <p> Melons and raspberries, </p>
           <p> Bloom-down-cheek’d peaches, </p>
+        </div>
+
+        <div class="verse five" id="five">
           <p> Swart-headed mulberries, </p>
           <p> Wild free-born cranberries, </p>
           <p> Crab-apples, dewberries, </p>
           <p> Pine-apples, blackberries, </p>
           <p> Apricots, strawberries;— </p>
+        </div>
+
+        <div class="end" id="end">
         </div>
 
       </div>
@@ -48,6 +54,8 @@
   const one = document.getElementById('one');
   const two = document.getElementById('two');
   const three = document.getElementById('three');
+  const four = document.getElementById('four');
+  const end = document.getElementById('end');
 
   const bg = '#F2DEBD';
   const fontColor = '#386F63';
@@ -76,6 +84,10 @@
     if (one.getBoundingClientRect().top <= 200) {
       fadeOutText(one);
       setBottomMargin(one, '0px');
+    } else {
+      fadeInText(one);
+      setBottomMargin(one, '100vh');
+      fadeOutText(two);
     }
 
 
@@ -84,9 +96,37 @@
     if (two.getBoundingClientRect().top <= 200) {
       fadeOutText(two);
       setBottomMargin(two, '0px');
+    } else {
+      fadeInText(two);
+      setBottomMargin(two, '100vh');
+      fadeOutText(three);
     }
 
+    // same with the third and fourth verses
+    if (three.getBoundingClientRect().top <= 200) {
+      fadeOutText(three);
+      setBottomMargin(three, '0px');
+    } else {
+      fadeInText(three);
+      setBottomMargin(three, '100vh');
+      fadeOutText(four);
+    }
 
+    if (four.getBoundingClientRect().top <= 200) {
+      fadeOutText(four);
+      setBottomMargin(four, '0px');
+    } else {
+      fadeInText(four);
+      setBottomMargin(four, '100vh');
+    }
+
+    if (five.getBoundingClientRect().top <= 200) {
+      fadeOutText(five);
+      setBottomMargin(five, '0px');
+    } else {
+      fadeInText(five);
+      setBottomMargin(five, '100vh');
+    }
 
 
     // var offset = $('#two').offset().top;
