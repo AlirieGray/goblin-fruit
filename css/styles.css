@@ -1,26 +1,36 @@
+@font-face {
+  font-family: 'great_victorianstandard';
+  src: url("../fonts/greatvictorian-kit/greatvictorian-standard-webfont.woff2") format("woff2"), url("../fonts/greatvictorian-kit/greatvictorian-standard-webfont.woff") format("woff"), url("../fonts/greatvictorian-kit/greatvictorian-standard-webfont.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal; }
 body, html {
   margin: 0;
-  color: #386F63; }
+  color: #386F63;
+  font-family: 'great_victorianstandard'; }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   background-color: #F2DEBD;
-  font-size: 2em;
+  font-size: 3em;
   text-align: center; }
 
 .verses {
   grid-column-start: 2;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  padding-top: 25%; }
+
+.verse {
+  margin-bottom: 100vh; }
 
 .one {
-  margin-bottom: 100vh; }
+  transition: 3500ms; }
 
 .two {
-  margin-bottom: 100vh; }
+  transition: 3500ms; }
 
 .three {
-  margin-bottom: 100vh; }
+  transition: 3500ms; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 
@@ -10,19 +11,23 @@
   <div class="container">
     <div class="verses">
       <div>
-        <div class="one">
+
+        <div class="verse one" id="one">
           <p> Morning and evening </p>
           <p> Maids heard the goblins cry: </p>
         </div>
 
-        <div class="two">
+        <div class="verse two" id="two">
           <p> “Come buy our orchard fruits, </p>
           <p> Come buy, come buy: </p>
         </div>
 
-        <div class="three">
+        <div class="verse three" id="three">
           <p> Apples and quinces, </p>
           <p> Lemons and oranges, </p>
+        </div>
+
+        <div class="verse four" id="four">
           <p> Plump unpeck’d cherries, </p>
           <p> Melons and raspberries, </p>
           <p> Bloom-down-cheek’d peaches, </p>
@@ -32,13 +37,111 @@
           <p> Pine-apples, blackberries, </p>
           <p> Apricots, strawberries;— </p>
         </div>
+
       </div>
     </div>
   </div>
 </body>
 
-
 <script>
+
+  const one = document.getElementById('one');
+  const two = document.getElementById('two');
+  const three = document.getElementById('three');
+
+  const bg = '#F2DEBD';
+  const fontColor = '#386F63';
+
+  function fadeOutText(element) {
+    element.style.color = bg;
+  }
+
+  function fadeInText(element) {
+    element.style.color = fontColor;
+  }
+
+  function hideElement(element) {
+    element.style.height = '0px';
+  }
+
+  function setBottomMargin(element, newMargin) {
+    element.style.marginBottom = newMargin;
+  }
+
+  $(window).scroll(function() {
+
+    // as soon as the user starts scrolling,
+    // fade out verse one and bring the next
+    // verse up
+    if (one.getBoundingClientRect().top <= 200) {
+      fadeOutText(one);
+      setBottomMargin(one, '0px');
+    }
+
+
+    // only once the second verse has made its
+    // way to the top, show the third verse
+    if (two.getBoundingClientRect().top <= 200) {
+      fadeOutText(two);
+      setBottomMargin(two, '0px');
+    }
+
+
+
+
+    // var offset = $('#two').offset().top;
+    // var scrollTop = $(window).scrollTop();
+    // var distance = offset - scrollTop;
+    //
+    // console.log('distance');
+    // console.log(distance);
+    //
+    // console.log('client height');
+    // console.log(two.clientHeight);
+    // if (distance <= (two.clientHeight / 2)) {
+    //   one.style.color = bg;
+    //   two.style.color = fontColor;
+    // } else {
+    //   one.style.color = fontColor;
+    //   two.style.color = bg;
+    // }
+    //
+    // if (distance <= 25) {
+    //   two.style.color = bg;
+    //   var offset = $('#three').offset().top;
+    //   var scrollTop = $(window).scrollTop();
+    //   var distance = offset - scrollTop;
+    //
+    //   if (distance <= (two.clientHeight / 2)) {
+    //     two.style.color = '#F2DEBD';
+    //     three.style.color = '#386F63';
+    //   } else {
+    //     two.style.color = '#386F63';
+    //     three.style.color = '#F2DEBD';
+    //   }
+    //
+    //   if (distance <= 25) {
+    //     three.style.color = '#F2DEBD';
+    //   }
+    // }
+
+
+
+  })
+
+  /*
+  <div class="four">
+    <p> Plump unpeck’d cherries, </p>
+    <p> Melons and raspberries, </p>
+    <p> Bloom-down-cheek’d peaches, </p>
+    <p> Swart-headed mulberries, </p>
+    <p> Wild free-born cranberries, </p>
+    <p> Crab-apples, dewberries, </p>
+    <p> Pine-apples, blackberries, </p>
+    <p> Apricots, strawberries;— </p>
+  </div>
+  */
+
 </script>
 
 

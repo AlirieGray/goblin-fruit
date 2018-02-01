@@ -1,10 +1,20 @@
 $bg: #F2DEBD;
 $font-color: #386F63;
-$big-font: 2em;
+$big-font: 3em;
+
+@font-face {
+    font-family: 'great_victorianstandard';
+    src: url('../fonts/greatvictorian-kit/greatvictorian-standard-webfont.woff2') format('woff2'),
+         url('../fonts/greatvictorian-kit/greatvictorian-standard-webfont.woff') format('woff'),
+         url('../fonts/greatvictorian-kit/greatvictorian-standard-webfont.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body, html {
   margin: 0;
   color: $font-color;
+  font-family: 'great_victorianstandard';
 }
 
 .container {
@@ -19,17 +29,23 @@ body, html {
   grid-column-start: 2;
   display: flex;
   justify-content: center;
+  padding-top: 25%;
+}
+
+.verse {
+  margin-bottom: 100vh;
 }
 
 .one {
-  margin-bottom: 100vh;
-
+  transition: 3500ms;
 }
 
 .two {
-  margin-bottom: 100vh;
+  //color: $bg; // start invisible
+  transition: 3500ms;
 }
 
 .three {
-  margin-bottom: 100vh;
+  //color: $bg; // start invisible
+  transition: 3500ms;
 }
