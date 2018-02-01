@@ -81,7 +81,7 @@
     // as soon as the user starts scrolling,
     // fade out verse one and bring the next
     // verse up
-    if (one.getBoundingClientRect().top <= 200) {
+    if (one.getBoundingClientRect().top <= 250) {
       fadeOutText(one);
       setBottomMargin(one, '0px');
     } else {
@@ -93,7 +93,7 @@
 
     // only once the second verse has made its
     // way to the top, show the third verse
-    if (two.getBoundingClientRect().top <= 200) {
+    if (two.getBoundingClientRect().top <= 250) {
       fadeOutText(two);
       setBottomMargin(two, '0px');
     } else {
@@ -103,7 +103,7 @@
     }
 
     // same with the third and fourth verses
-    if (three.getBoundingClientRect().top <= 200) {
+    if (three.getBoundingClientRect().top <= 250) {
       fadeOutText(three);
       setBottomMargin(three, '0px');
     } else {
@@ -112,7 +112,7 @@
       fadeOutText(four);
     }
 
-    if (four.getBoundingClientRect().top <= 200) {
+    if (four.getBoundingClientRect().top <= 250) {
       fadeOutText(four);
       setBottomMargin(four, '0px');
     } else {
@@ -120,7 +120,7 @@
       setBottomMargin(four, '100vh');
     }
 
-    if (five.getBoundingClientRect().top <= 200) {
+    if (five.getBoundingClientRect().top <= 250) {
       fadeOutText(five);
       setBottomMargin(five, '0px');
     } else {
