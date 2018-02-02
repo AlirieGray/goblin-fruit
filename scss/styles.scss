@@ -12,6 +12,15 @@ $fade-out-time: 2500ms;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'metal_macabreregular';
+    src: url('../fonts/metal-kit/metalmacabre-webfont.woff2') format('woff2'),
+         url('../fonts/metal-kit/metalmacabre-webfont.woff') format('woff'),
+         url('../fonts/metal-kit/metalmacabre-webfont.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, html {
   margin: 0;
   color: $font-color;
@@ -28,14 +37,13 @@ body, html {
 
 .left-column {
   grid-column-start: 1;
-
 }
 
 .right-column {
   grid-column-start: 3;
   font-family: sans-serif;
   font-size: .25em;
-  position: absolute;
+  position: fixed;
   right: 5px;
   bottom: 5px;
 }
@@ -43,6 +51,11 @@ body, html {
 .right-column > a {
   margin: 2px;
   color: gray !important;
+}
+
+.goblin-font {
+  font-family: 'metal_macabreregular';
+  font-size: .7em;
 }
 
 .verses {
@@ -58,7 +71,6 @@ body, html {
 
 .one {
   transition: $fade-out-time;
-
 }
 
 .two {
