@@ -10,6 +10,10 @@
 
 <body>
   <div class="container">
+    <div class="left-column">
+      <div class="goblin">
+      </div>
+    </div>
     <div class="verses">
       <div>
 
@@ -42,10 +46,40 @@
           <p> Apricots, strawberries;— </p>
         </div>
 
+        <div class="verse six" id="six">
+          <p> All ripe together </p>
+          <p> In summer weather,— </p>
+          <p> Morns that pass by, </p>
+          <p> Fair eves that fly; </p>
+        </div>
+
+        <div class="verse seven" id="seven">
+          <p> Come buy, come buy: </p>
+          <p> Our grapes fresh from the vine, </p>
+          <p> Pomegranates full and fine, </p>
+          <p> Dates and sharp bullaces, </p>
+          <p> Rare pears and greengages, </p>
+          <p> Damsons and bilberries, </p>
+        </div>
+
+        <div class="verse eight" id="eight">
+          <p> Taste them and try: </p>
+          <p> Currants and gooseberries, </p>
+          <p> Bright-fire-like barberries, </p>
+          <p> Figs to fill your mouth, </p>
+          <p> Citrons from the South, </p>
+          <p> Sweet to tongue and sound to eye; </p>
+          <p> Come buy, come buy.” </p>
+        </div>
+
         <div class="end" id="end">
         </div>
 
       </div>
+    </div>
+
+    <div class="right-column">
+
     </div>
   </div>
 </body>
@@ -58,6 +92,7 @@
   const four = document.getElementById('four');
   const end = document.getElementById('end');
 
+  const fadeOutPoint = $(window).height() / 6;
   const bg = '#F2DEBD';
   const fontColor = '#386F63';
 
@@ -82,19 +117,19 @@
     // as soon as the user starts scrolling,
     // fade out verse one and bring the next
     // verse up
-    if (one.getBoundingClientRect().top <= 250) {
+    if (one.getBoundingClientRect().top < fadeOutPoint) {
       fadeOutText(one);
       setBottomMargin(one, '0px');
+
     } else {
       fadeInText(one);
       setBottomMargin(one, '100vh');
       fadeOutText(two);
     }
 
-
     // only once the second verse has made its
     // way to the top, show the third verse
-    if (two.getBoundingClientRect().top <= 250) {
+    if (two.getBoundingClientRect().top < fadeOutPoint) {
       fadeOutText(two);
       setBottomMargin(two, '0px');
     } else {
@@ -104,7 +139,7 @@
     }
 
     // same with the third and fourth verses
-    if (three.getBoundingClientRect().top <= 250) {
+    if (three.getBoundingClientRect().top < fadeOutPoint) {
       fadeOutText(three);
       setBottomMargin(three, '0px');
     } else {
@@ -113,7 +148,7 @@
       fadeOutText(four);
     }
 
-    if (four.getBoundingClientRect().top <= 250) {
+    if (four.getBoundingClientRect().top < fadeOutPoint) {
       fadeOutText(four);
       setBottomMargin(four, '0px');
     } else {
@@ -121,7 +156,7 @@
       setBottomMargin(four, '100vh');
     }
 
-    if (five.getBoundingClientRect().top <= 250) {
+    if (five.getBoundingClientRect().top < fadeOutPoint) {
       fadeOutText(five);
       setBottomMargin(five, '0px');
     } else {
@@ -169,19 +204,6 @@
 
 
   })
-
-  /*
-  <div class="four">
-    <p> Plump unpeck’d cherries, </p>
-    <p> Melons and raspberries, </p>
-    <p> Bloom-down-cheek’d peaches, </p>
-    <p> Swart-headed mulberries, </p>
-    <p> Wild free-born cranberries, </p>
-    <p> Crab-apples, dewberries, </p>
-    <p> Pine-apples, blackberries, </p>
-    <p> Apricots, strawberries;— </p>
-  </div>
-  */
 
 </script>
 

@@ -15,6 +15,12 @@ body, html {
   font-size: 3em;
   text-align: center; }
 
+.left-column {
+  grid-column-start: 1; }
+
+.right-column {
+  grid-column-start: 3; }
+
 .verses {
   grid-column-start: 2;
   display: flex;
@@ -25,26 +31,26 @@ body, html {
   margin-bottom: 100vh; }
 
 .one {
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 .two {
   color: #F2DEBD;
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 .three {
   color: #F2DEBD;
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 .four {
   color: #F2DEBD;
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 .five {
   color: #F2DEBD;
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 .end {
   height: 100vh;
-  transition: 3500ms; }
+  transition: 2500ms; }
 
 /*# sourceMappingURL=styles.css.map */

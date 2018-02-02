@@ -1,6 +1,7 @@
 $bg: #F2DEBD;
 $font-color: #386F63;
 $big-font: 3em;
+$fade-out-time: 2500ms;
 
 @font-face {
     font-family: 'great_victorianstandard';
@@ -25,6 +26,16 @@ body, html {
   text-align: center;
 }
 
+.left-column {
+  grid-column-start: 1;
+
+}
+
+.right-column {
+  grid-column-start: 3;
+
+}
+
 .verses {
   grid-column-start: 2;
   display: flex;
@@ -37,30 +48,30 @@ body, html {
 }
 
 .one {
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
 
 .two {
   color: $bg; // start invisible
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
 
 .three {
   color: $bg; // start invisible
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
 
 .four {
   color: $bg; // start invisible
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
 
 .five {
   color: $bg; // start invisible
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
 
 .end {
   height: 100vh;
-  transition: 3500ms;
+  transition: $fade-out-time;
 }
