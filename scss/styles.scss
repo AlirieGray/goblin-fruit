@@ -1,6 +1,6 @@
 $bg: #F2DEBD;
 $font-color: #386F63;
-$big-font: 3em;
+$big-font: 3.5em;
 $fade-out-time: 2500ms;
 
 @font-face {
@@ -33,14 +33,23 @@ body, html {
 
 .right-column {
   grid-column-start: 3;
+  font-family: sans-serif;
+  font-size: .25em;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
 
+.right-column > a {
+  margin: 2px;
+  color: gray !important;
 }
 
 .verses {
   grid-column-start: 2;
   display: flex;
   justify-content: center;
-  padding-top: 25%;
+  padding-top: 25vh;
 }
 
 .verse {
@@ -49,6 +58,7 @@ body, html {
 
 .one {
   transition: $fade-out-time;
+
 }
 
 .two {
