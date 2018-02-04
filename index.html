@@ -60,11 +60,12 @@
         <div class="verse eight" id="eight">
           <p> Fair eves that fly; </p>
           <p> Come buy, come buy: </p>
-          <p> Our grapes fresh from the vine, </p>
+
 
         </div>
 
         <div class="verse nine" id="nine">
+          <p> Our grapes fresh from the vine, </p>
           <p> Pomegranates full and fine, </p>
           <p> Dates and sharp bullaces, </p>
           <p> Rare pears and greengages, </p>
@@ -108,6 +109,9 @@
   const three = document.getElementById('three');
   const four = document.getElementById('four');
   const five = document.getElementById('five');
+  const six = document.getElementById('six');
+  const seven = document.getElementById('seven');
+  const eight = document.getElementById('eight');
 
   const bg = '#F2DEBD';
   const fontColor = '#386F63';
@@ -120,7 +124,7 @@
   }
 
   function fadeInText(element) {
-    element.style.zIndex = 100;
+    element.style.zIndex = 101;
     element.style.color = fontColor;
   }
 
@@ -146,6 +150,9 @@
     rangeAnimation((time == 14), (time == 18), three, fadeInText, fadeOutText);
     rangeAnimation((time == 21), (time == 25), four, fadeInText, fadeOutText);
     rangeAnimation((time == 28), (time == 31), five, fadeInText, fadeOutText);
+    rangeAnimation((time == 33), (time == 37), six, fadeInText, fadeOutText);
+    rangeAnimation((time == 40), (time == 44), seven, fadeInText, fadeOutText);
+    rangeAnimation((time == 47), (time == 51), eight, fadeInText, fadeOutText);
   }, 1000);
 
 

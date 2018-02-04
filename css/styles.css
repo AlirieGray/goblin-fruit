@@ -55,7 +55,12 @@ body, html {
   color: #F2DEBD;
   transition: 2500ms;
   position: absolute;
-  top: 20%; }
+  top: 12%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px; }
 
 .one {
   z-index: 100; }
