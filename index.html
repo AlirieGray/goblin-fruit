@@ -11,8 +11,7 @@
 <body>
   <div class="container">
     <div class="left-column">
-      <div class="goblin">
-      </div>
+
     </div>
     <div class="verses">
       <div>
@@ -41,46 +40,63 @@
         <div class="verse five" id="five">
           <p> Swart-headed mulberries, </p>
           <p> Wild free-born cranberries, </p>
-          <p> Crab-apples, dewberries, </p>
-          <p> Pine-apples, blackberries, </p>
-          <p> Apricots, strawberries;— </p>
+
         </div>
 
         <div class="verse six" id="six">
-          <p> All ripe together </p>
-          <p> In summer weather,— </p>
-          <p> Morns that pass by, </p>
-          <p> Fair eves that fly; </p>
+          <p> Crab-apples, dewberries, </p>
+          <p> Pine-apples, blackberries, </p>
+          <p> Apricots, strawberries;— </p>
+
         </div>
 
         <div class="verse seven" id="seven">
-          <p> Come buy, come buy: </p>
-          <p> Our grapes fresh from the vine, </p>
-          <p> Pomegranates full and fine, </p>
-          <p> Dates and sharp bullaces, </p>
-          <p> Rare pears and greengages, </p>
-          <p> Damsons and bilberries, </p>
+          <p> All ripe together </p>
+          <p> In summer weather,— </p>
+          <p> Morns that pass by, </p>
+
         </div>
 
         <div class="verse eight" id="eight">
+          <p> Fair eves that fly; </p>
+          <p> Come buy, come buy: </p>
+          <p> Our grapes fresh from the vine, </p>
+
+        </div>
+
+        <div class="verse nine" id="nine">
+          <p> Pomegranates full and fine, </p>
+          <p> Dates and sharp bullaces, </p>
+          <p> Rare pears and greengages, </p>
+        </div>
+
+        <div class="verse ten" id="ten">
+          <p> Damsons and bilberries, </p>
           <p> Taste them and try: </p>
           <p> Currants and gooseberries, </p>
+
+        </div>
+
+        <div class="verse eleven" id="eleven">
           <p> Bright-fire-like barberries, </p>
           <p> Figs to fill your mouth, </p>
           <p> Citrons from the South, </p>
+        </div>
+
+        <div class="verse twelve" id="twelve">
           <p> Sweet to tongue and sound to eye; </p>
           <p> Come buy, come buy.” </p>
         </div>
 
-        <div class="end" id="end">
-        </div>
 
       </div>
     </div>
 
     <div class="right-column">
-      <a href="http://www.aliriegray.com/"> Alirie Gray</a>
-      <a href="https://github.com/AlirieGray/goblin-fruit">GitHub</a>
+      <div class="links">
+        <a href="http://www.aliriegray.com/"> Alirie Gray</a>
+        <a href="https://github.com/AlirieGray/goblin-fruit">GitHub</a>
+      </div>
     </div>
   </div>
 </body>
@@ -91,17 +107,20 @@
   const two = document.getElementById('two');
   const three = document.getElementById('three');
   const four = document.getElementById('four');
-  const end = document.getElementById('end');
+  const five = document.getElementById('five');
 
-  const fadeOutPoint = $(window).height() / 4;
   const bg = '#F2DEBD';
   const fontColor = '#386F63';
 
   function fadeOutText(element) {
     element.style.color = bg;
+    setTimeout(() => {
+      element.style.zIndex = 0;
+    }, 2500)
   }
 
   function fadeInText(element) {
+    element.style.zIndex = 100;
     element.style.color = fontColor;
   }
 
@@ -109,102 +128,30 @@
     element.style.height = '0px';
   }
 
-  function setBottomMargin(element, newMargin) {
-    element.style.marginBottom = newMargin;
+  function rangeAnimation(start, end, element, show, hide) {
+    if (start) {
+      show(element);
+    }
+    if (end) {
+      hide(element);
+    }
   }
 
-  $(window).scroll(function() {
-
-    // as soon as the user starts scrolling,
-    // fade out verse one and bring the next
-    // verse up
-    if (one.getBoundingClientRect().top < fadeOutPoint) {
-      fadeOutText(one);
-      setBottomMargin(one, '0px');
-
-    } else {
-      fadeInText(one);
-      setBottomMargin(one, '100vh');
-      fadeOutText(two);
-    }
-
-    // only once the second verse has made its
-    // way to the top, show the third verse
-    if (two.getBoundingClientRect().top < fadeOutPoint) {
-      fadeOutText(two);
-      setBottomMargin(two, '0px');
-    } else {
-      fadeInText(two);
-      setBottomMargin(two, '100vh');
-      fadeOutText(three);
-    }
-
-    // same with the third and fourth verses
-    if (three.getBoundingClientRect().top < fadeOutPoint) {
-      fadeOutText(three);
-      setBottomMargin(three, '0px');
-    } else {
-      fadeInText(three);
-      setBottomMargin(three, '100vh');
-      fadeOutText(four);
-    }
-
-    if (four.getBoundingClientRect().top < fadeOutPoint) {
-      fadeOutText(four);
-      setBottomMargin(four, '0px');
-    } else {
-      fadeInText(four);
-      setBottomMargin(four, '100vh');
-    }
-
-    if (five.getBoundingClientRect().top < fadeOutPoint) {
-      fadeOutText(five);
-      setBottomMargin(five, '0px');
-    } else {
-      fadeInText(five);
-      setBottomMargin(five, '100vh');
-    }
+  var time = 0; // seconds
+  setInterval(function() {
+    time += 1;
+    console.log(time);
+    rangeAnimation((time == 1), (time == 4), one, fadeInText, fadeOutText);
+    rangeAnimation((time == 7), (time == 11), two, fadeInText, fadeOutText);
+    rangeAnimation((time == 14), (time == 18), three, fadeInText, fadeOutText);
+    rangeAnimation((time == 21), (time == 25), four, fadeInText, fadeOutText);
+    rangeAnimation((time == 28), (time == 31), five, fadeInText, fadeOutText);
+  }, 1000);
 
 
-    // var offset = $('#two').offset().top;
-    // var scrollTop = $(window).scrollTop();
-    // var distance = offset - scrollTop;
-    //
-    // console.log('distance');
-    // console.log(distance);
-    //
-    // console.log('client height');
-    // console.log(two.clientHeight);
-    // if (distance <= (two.clientHeight / 2)) {
-    //   one.style.color = bg;
-    //   two.style.color = fontColor;
-    // } else {
-    //   one.style.color = fontColor;
-    //   two.style.color = bg;
-    // }
-    //
-    // if (distance <= 25) {
-    //   two.style.color = bg;
-    //   var offset = $('#three').offset().top;
-    //   var scrollTop = $(window).scrollTop();
-    //   var distance = offset - scrollTop;
-    //
-    //   if (distance <= (two.clientHeight / 2)) {
-    //     two.style.color = '#F2DEBD';
-    //     three.style.color = '#386F63';
-    //   } else {
-    //     two.style.color = '#386F63';
-    //     three.style.color = '#F2DEBD';
-    //   }
-    //
-    //   if (distance <= 25) {
-    //     three.style.color = '#F2DEBD';
-    //   }
-    // }
-
-
-
-  })
+  // $(window).scroll(function() {
+  //
+  // })
 
 </script>
 

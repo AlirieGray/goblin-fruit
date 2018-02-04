@@ -11,28 +11,36 @@
 body, html {
   margin: 0;
   color: #386F63;
-  font-family: 'great_victorianstandard'; }
+  font-family: 'great_victorianstandard';
+  height: 100vh; }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   background-color: #F2DEBD;
   font-size: 3.5em;
-  text-align: center; }
+  text-align: center;
+  height: 100vh;
+  overflow: auto; }
 
 .left-column {
   grid-column-start: 1; }
 
 .right-column {
-  grid-column-start: 3;
+  grid-column-start: 3; }
+
+.links {
   font-family: sans-serif;
   font-size: .25em;
   position: fixed;
-  right: 5px;
+  right: 20px;
   bottom: 5px; }
 
-.right-column > a {
+.links > a {
   margin: 2px;
+  color: gray !important; }
+
+.links > a:visited {
   color: gray !important; }
 
 .goblin-font {
@@ -41,34 +49,48 @@ body, html {
 
 .verses {
   grid-column-start: 2;
-  display: flex;
-  justify-content: center;
-  padding-top: 25vh; }
+  position: relative; }
 
 .verse {
-  margin-bottom: 100vh; }
+  color: #F2DEBD;
+  transition: 2500ms;
+  position: absolute;
+  top: 20%; }
 
 .one {
-  transition: 2500ms; }
+  z-index: 100; }
 
 .two {
-  color: #F2DEBD;
-  transition: 2500ms; }
+  z-index: 99; }
 
 .three {
-  color: #F2DEBD;
-  transition: 2500ms; }
+  z-index: 98; }
 
 .four {
-  color: #F2DEBD;
-  transition: 2500ms; }
+  z-index: 97; }
 
 .five {
-  color: #F2DEBD;
-  transition: 2500ms; }
+  z-index: 96; }
 
-.end {
-  height: 100vh;
-  transition: 2500ms; }
+.six {
+  z-index: 95; }
+
+.seven {
+  z-index: 94; }
+
+.eight {
+  z-index: 93; }
+
+.nine {
+  z-index: 92; }
+
+.ten {
+  z-index: 91; }
+
+.eleven {
+  z-index: 90; }
+
+.twelve {
+  z-index: 89; }
 
 /*# sourceMappingURL=styles.css.map */
