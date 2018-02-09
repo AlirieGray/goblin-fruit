@@ -9,13 +9,13 @@
 
 
 <body>
-  <div class="container">
+  <div class="container" id="container">
     <div class="left-column">
-
     </div>
-    <div class="verses">
+    <div class="verses" id="verses">
       <div>
-
+        <div id="line">
+        </div>
         <div class="verse one" id="one">
           <p> Morning and evening </p>
           <p> Maids heard the <span class="goblin-font"> goblins </span> cry: </p>
@@ -54,14 +54,11 @@
           <p> All ripe together </p>
           <p> In summer weather,— </p>
           <p> Morns that pass by, </p>
-
         </div>
 
         <div class="verse eight" id="eight">
           <p> Fair eves that fly; </p>
           <p> Come buy, come buy: </p>
-
-
         </div>
 
         <div class="verse nine" id="nine">
@@ -75,7 +72,6 @@
           <p> Damsons and bilberries, </p>
           <p> Taste them and try: </p>
           <p> Currants and gooseberries, </p>
-
         </div>
 
         <div class="verse eleven" id="eleven">
@@ -88,7 +84,6 @@
           <p> Sweet to tongue and sound to eye; </p>
           <p> Come buy, come buy.” </p>
         </div>
-
 
       </div>
     </div>
@@ -104,6 +99,8 @@
 
 <script>
 
+  const verses = document.getElementById('verses');
+  const line = document.getElementById('line');
   const one = document.getElementById('one');
   const two = document.getElementById('two');
   const three = document.getElementById('three');
@@ -116,49 +113,54 @@
   const bg = '#F2DEBD';
   const fontColor = '#386F63';
 
-  function fadeOutText(element) {
-    element.style.color = bg;
-    setTimeout(() => {
-      element.style.zIndex = 0;
-    }, 2500)
+  function bringToFront(element) {
+    element.style.zIndex = 100;
   }
 
-  function fadeInText(element) {
-    element.style.zIndex = 101;
-    element.style.color = fontColor;
+  function sendToBack(element) {
+    element.style.zIndex = 0;
   }
-
-  function hideElement(element) {
-    element.style.height = '0px';
-  }
-
-  function rangeAnimation(start, end, element, show, hide) {
-    if (start) {
-      show(element);
+// transition delay
+  function verseAnimation(start, end, currentScroll, element) {
+    const scrollRange = end - start;
+    const quarterRange = scrollRange / 4;
+    const endOfFirstQuarter = start + quarterRange;
+    const startOfLastQuarter = end - quarterRange;
+    // first quarter
+    if (currentScroll > start && currentScroll < endOfFirstQuarter) {
+      bringToFront(element);
+      var opacity = (currentScroll) / endOfFirstQuarter;
+      element.style.color = `rgba(${56}, ${111}, ${99}, ${opacity})`;
     }
-    if (end) {
-      hide(element);
+    if (currentScroll > startOfLastQuarter && currentScroll < end) {
+      var opacity = (scrollRange - currentScroll) / quarterRange;
+      element.style.color = `rgba(${56}, ${111}, ${99}, ${opacity})`;
+    }
+    if (currentScroll > end || currentScroll < start) {
+      sendToBack(element);
     }
   }
 
-  var time = 0; // seconds
-  setInterval(function() {
-    time += 1;
-    console.log(time);
-    rangeAnimation((time == 1), (time == 4), one, fadeInText, fadeOutText);
-    rangeAnimation((time == 7), (time == 11), two, fadeInText, fadeOutText);
-    rangeAnimation((time == 14), (time == 18), three, fadeInText, fadeOutText);
-    rangeAnimation((time == 21), (time == 25), four, fadeInText, fadeOutText);
-    rangeAnimation((time == 28), (time == 31), five, fadeInText, fadeOutText);
-    rangeAnimation((time == 33), (time == 37), six, fadeInText, fadeOutText);
-    rangeAnimation((time == 40), (time == 44), seven, fadeInText, fadeOutText);
-    rangeAnimation((time == 47), (time == 51), eight, fadeInText, fadeOutText);
-  }, 1000);
+  function growLineFromLeft(line, currentScroll, minScroll) {
+    if (currentScroll >= minScroll && currentScroll <= minScroll + 1000) {
+        line.style.width = `${(.5 * currentScroll)}px`;
+    } else if (currentScroll < minScroll) {
+      line.style.width = 0;
+    }
+  }
 
 
-  // $(window).scroll(function() {
-  //
-  // })
+  $(document).scroll(function() {
+    var scrolledpx = parseInt($(document).scrollTop());
+    var y = scrolledpx;
+    console.log(y);
+
+    verseAnimation(0, 2000, y, one);
+    growLineFromLeft(line, scrolledpx, 0);
+    verseAnimation(2000, 4500, y, two);
+  })
+
+
 
 </script>
 

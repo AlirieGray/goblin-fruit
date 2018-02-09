@@ -1,7 +1,6 @@
 $bg: #F2DEBD;
 $font-color: #386F63;
 $big-font: 3.5em;
-$fade-out-time: 2500ms;
 
 @font-face {
     font-family: 'great_victorianstandard';
@@ -34,8 +33,7 @@ body, html {
   background-color: $bg;
   font-size: $big-font;
   text-align: center;
-  height: 100vh;
-  overflow: auto;
+  height: 10000px;
 }
 
 .left-column {
@@ -71,66 +69,36 @@ body, html {
 .verses {
   grid-column-start: 2;
   position: relative;
-
 }
 
 .verse {
   color: $bg; // start invisible
-  transition: $fade-out-time;
-  position: absolute;
+  background-color: $bg;
+  //transition: $fade-out-time;
+  position: fixed;
   top: 12%;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  width: 450px;
 }
 
 .one {
-  //color: $font-color;
   z-index: 100;
 }
 
-.two {
-  z-index: 99;
-}
-
-.three {
-  z-index: 98;
-}
-
-.four {
-  z-index: 97;
-}
-
-.five {
-  z-index: 96;
-}
-
-.six {
-  z-index: 95;
-}
-
-.seven {
-  z-index: 94;
-}
-
-.eight {
-  z-index: 93;
-}
-
-.nine {
-  z-index: 92;
-}
-
-.ten {
-  z-index: 91;
-}
-
-.eleven {
-  z-index: 90;
-}
-
-.twelve {
-  z-index: 89;
+#line {
+  background-color: gray;
+  width: 0px;
+  height: 5px;
+  border-radius: 2px;
+  position: fixed;
+  top: 450px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 101;
+  //transition: 0ms;
 }
