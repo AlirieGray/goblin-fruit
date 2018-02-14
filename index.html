@@ -129,11 +129,18 @@
     // first quarter
     if (currentScroll > start && currentScroll < endOfFirstQuarter) {
       bringToFront(element);
-      var opacity = (currentScroll) / endOfFirstQuarter;
+      var opacity = (currentScroll - start) / (endOfFirstQuarter - start);
+
       element.style.color = `rgba(${56}, ${111}, ${99}, ${opacity})`;
     }
     if (currentScroll > startOfLastQuarter && currentScroll < end) {
-      var opacity = (scrollRange - currentScroll) / quarterRange;
+      bringToFront(element);
+      console.log(`currentScroll: ${currentScroll}`)
+      console.log(`scrollRange: ${scrollRange}`)
+      console.log(`quarterRange: ${quarterRange}`)
+
+      var opacity = (end - currentScroll) / quarterRange;
+      console.log(`opacity: ${opacity}`)
       element.style.color = `rgba(${56}, ${111}, ${99}, ${opacity})`;
     }
     if (currentScroll > end || currentScroll < start) {
@@ -153,11 +160,11 @@
   $(document).scroll(function() {
     var scrolledpx = parseInt($(document).scrollTop());
     var y = scrolledpx;
-    console.log(y);
+    console.log('y ' + y);
 
     verseAnimation(0, 2000, y, one);
     growLineFromLeft(line, scrolledpx, 0);
-    verseAnimation(2000, 4500, y, two);
+    verseAnimation(2000, 4000, y, two);
   })
 
 
