@@ -20,7 +20,7 @@ body, html {
   background-color: #F2DEBD;
   font-size: 3.5em;
   text-align: center;
-  height: 10000px; }
+  height: 25000px; }
 
 .left-column {
   grid-column-start: 1; }
